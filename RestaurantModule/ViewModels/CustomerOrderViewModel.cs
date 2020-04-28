@@ -13,8 +13,8 @@ namespace RestaurantModule.ViewModels
         public string MyProperty { get; } = "Customer Order";
         public CustomerOrderViewModel(IEventAggregator ea)
         {
-            ea.GetEvent<MenuEvent>().Subscribe(CustomerDisplayMenu);
             _displayMenu = new ObservableCollection<MenuItems>();
+            ea.GetEvent<MenuEvent>().Subscribe(CustomerDisplayMenu);
         }
 
         
@@ -28,7 +28,6 @@ namespace RestaurantModule.ViewModels
 
         private void CustomerDisplayMenu(ObservableCollection<MenuItems> obj)
         {
-            DisplayMenu.Clear();
             foreach(MenuItems item in obj)
             {
                 DisplayMenu.Add(item);

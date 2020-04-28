@@ -15,11 +15,11 @@ namespace RestaurantModule
 
         public void Initialize()
         {
-            _regionManager.RegisterViewWithRegion("Left", typeof(Views.Home));
+            //_regionManager.RegisterViewWithRegion("Left", typeof(Views.Home));
             //_regionManager.RegisterViewWithRegion("Right", typeof(Views.AdminLogin));
-            _regionManager.RegisterViewWithRegion("Right", typeof(Views.AdminManage));
+            //_regionManager.RegisterViewWithRegion("Right", typeof(Views.AdminManage));
             //_regionManager.RegisterViewWithRegion("Right", typeof(Views.CustomerInfo));
-            _regionManager.RegisterViewWithRegion("Right", typeof(Views.CustomerOrder));
+            //_regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.CustomerOrder));
             //_regionManager.RegisterViewWithRegion("Right", typeof(Views.CustomerBill));
         }
     }

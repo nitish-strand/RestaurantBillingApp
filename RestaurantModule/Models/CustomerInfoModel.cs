@@ -2,7 +2,7 @@
 
 namespace RestaurantModule.Models
 {
-    public class CustomerInfo : ICustomerInfo
+    public class CustomerInfoModel : ICustomerInfo
     {
         public string customerFirstName { get; set; }
         public string customerLastName { get; set; }

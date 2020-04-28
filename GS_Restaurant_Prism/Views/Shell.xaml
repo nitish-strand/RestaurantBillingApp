@@ -19,7 +19,7 @@
             <Border BorderThickness="2" BorderBrush="Black" Background="LightGray" />
             <StackPanel>
                 <Label Content="Navigation"/>
-                <ItemsControl prism:RegionManager.RegionName="Left"></ItemsControl>
+                <ItemsControl prism:RegionManager.RegionName="LeftRegion"></ItemsControl>
             </StackPanel>
         </Grid>
 
@@ -29,7 +29,7 @@
             <Border BorderThickness="2" BorderBrush="Black" Background="GhostWhite" />
             <StackPanel>
                 <Label Content="Main Panel"/>
-                <ItemsControl prism:RegionManager.RegionName="Right"></ItemsControl>
+                <ItemsControl prism:RegionManager.RegionName="RightRegion"></ItemsControl>
             </StackPanel>
         </Grid>
     </Grid>

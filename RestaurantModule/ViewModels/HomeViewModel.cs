@@ -2,15 +2,20 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows;
+using Prism.Regions;
 
 namespace RestaurantModule.ViewModels
 {
     public class HomeViewModel : BindableBase
     {
         public DelegateCommand<Window> ExitCommand { get; private set; }
-        public HomeViewModel()
+
+        private IRegionManager _regionManager;
+        public HomeViewModel(IRegionManager regionManager)
         {
             ExitCommand = new DelegateCommand<Window>(Execute, CanExecute);
+            _regionManager = regionManager;
+            
             //unity container region manager
 
         }
@@ -31,11 +36,10 @@ namespace RestaurantModule.ViewModels
             get { return p_ButtonAIsChecked; }
             set
             {
+                RemoveAllRegions("RightRegion");
+                //MessageBox.Show(string.Format("Button A is checked: {0}", value));
+                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.AdminLogin));
                 SetProperty(ref p_ButtonAIsChecked, value);
-                MessageBox.Show(string.Format("Button A is checked: {0}", value));
-                // if true remove all regions from right regions and add admin password view
-                //
-                // else 
             }
         }
 
@@ -45,8 +49,18 @@ namespace RestaurantModule.ViewModels
             get { return p_ButtonBIsChecked; }
             set
             {
+                RemoveAllRegions("RightRegion");
+                //MessageBox.Show(string.Format("Button B is checked: {0}", value));
+                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.CustomerInfo));
                 SetProperty(ref p_ButtonBIsChecked, value);
-                MessageBox.Show(string.Format("Button B is checked: {0}", value));
+            }
+        }
+
+        private void RemoveAllRegions(string regionName)
+        {
+            foreach (var view in _regionManager.Regions[regionName].Views)
+            {
+                _regionManager.Regions[regionName].Remove(view);
             }
         }
     }

@@ -1,6 +1,11 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using Prism.Regions;
+using RestaurantModule.Events;
 using RestaurantModule.Models;
+using RestaurantModule.Views;
+using System;
 using System.Windows;
 
 namespace RestaurantModule.ViewModels
@@ -52,26 +57,47 @@ namespace RestaurantModule.ViewModels
 		}
 
 		public DelegateCommand SubmitInfo { get; private set; }
-		public CustomerInfoViewModel()
+		public DelegateCommand TakeOrder { get; private set; }
+		public IEventAggregator _eventAggregator;
+		public IRegionManager _regionManager ;
+		public CustomerInfoViewModel(IEventAggregator eventAggregator, IRegionManager regionManager)
 		{
 			SubmitInfo = new DelegateCommand(SubmitCustomerInfo);
+			TakeOrder = new DelegateCommand(TakeOrderDef);
 			Message = "";
 			CheckVisibility = Visibility.Collapsed;
+			_eventAggregator = eventAggregator;
+			_regionManager = regionManager;
 		}
 
-		private CustomerInfo custObj;
-		private CustomerInfo newCustObj;
+		private void TakeOrderDef()
+		{
+			RemoveAllRegions("RightRegion");
+			_regionManager.RegisterViewWithRegion("RightRegion", typeof(CustomerOrder));
+		}
+
+		private CustomerInfoModel custObj;
+		
 		private void SubmitCustomerInfo()
 		{
-			custObj = new CustomerInfo();
+			custObj = new CustomerInfoModel();
 			custObj.customerFirstName = CustomerFirstName;
 			custObj.customerLastName = CustomerLastName;
 			custObj.customerLocation = CustomerLocation;
 			custObj.customerWithNumber = CustomerWithNumber;
-
-			newCustObj = custObj;
+			
 			Message = "Your information is saved please go ahead and order.";
 			CheckVisibility = Visibility.Visible;
+
+			_eventAggregator.GetEvent<CustomerInfoEvent>().Publish(custObj);
+		}
+
+		private void RemoveAllRegions(string regionName)
+		{
+			foreach (var view in _regionManager.Regions[regionName].Views)
+			{
+				_regionManager.Regions[regionName].Remove(view);
+			}
 		}
 	}
 }
