@@ -9,6 +9,11 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="{Binding MyProperty}"/>
+        <StackPanel>
+            <Label Content="{Binding MyProperty}"/>
+            <Label Content="{Binding Testvalue}"/>
+        </StackPanel>
+        
+        
     </Grid>
 </UserControl>

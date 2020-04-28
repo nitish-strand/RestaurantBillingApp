@@ -54,6 +54,7 @@ namespace RestaurantModule.ViewModels
             {
                 RemoveAllRegions("RightRegion");
                 _regionManager.RegisterViewWithRegion("RightRegion", typeof(AdminManage));
+                //_regionManager.RequestNavigate("RightRegion", new Uri("CustomerBill", UriKind.Relative));
             }
             else
             {

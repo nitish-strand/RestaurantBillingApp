@@ -22,5 +22,6 @@ namespace RestaurantModule
             //_regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.CustomerOrder));
             //_regionManager.RegisterViewWithRegion("Right", typeof(Views.CustomerBill));
         }
+
     }
 }

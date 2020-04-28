@@ -36,6 +36,7 @@ namespace RestaurantModule.ViewModels
             Message = "Changes made have been saved.";
             //code to save the changes in some Collections. To be shared for later.
             _ea.GetEvent<MenuEvent>().Publish(MyItems);
+            _ea.GetEvent<Test>().Publish("Testing123");
         }
 
         private bool canExecuteMethod()

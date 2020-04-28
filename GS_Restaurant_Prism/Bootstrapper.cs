@@ -2,6 +2,7 @@
 using System.Windows;
 using Microsoft.Practices.Unity;
 using System;
+using RestaurantModule.Views;
 
 namespace GS_Restaurant_Prism
 {
@@ -35,6 +36,17 @@ namespace GS_Restaurant_Prism
                     ModuleType = module2Type.AssemblyQualifiedName
                 }
                 );
+        }
+
+        protected override void ConfigureContainer()
+        {
+            base.ConfigureContainer();
+            Container.RegisterTypeForNavigation<AdminLogin>("AdminLogin");
+            Container.RegisterTypeForNavigation<AdminManage>("AdminManage");
+            Container.RegisterTypeForNavigation<CustomerInfo>("CustomerInfo");
+            Container.RegisterTypeForNavigation<CustomerOrder>("CustomerOrder");
+            Container.RegisterTypeForNavigation<CustomerBill>("CustomerBill");
+            
         }
     }
 }

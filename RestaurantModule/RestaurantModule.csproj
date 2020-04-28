@@ -80,10 +80,12 @@
   <ItemGroup>
     <Compile Include="Events\CustomerInfoEvent.cs" />
     <Compile Include="Events\MenuEvent.cs" />
+    <Compile Include="Events\Test.cs" />
     <Compile Include="Interfaces\ICustomerInfo.cs" />
     <Compile Include="Interfaces\IMenuItems.cs" />
     <Compile Include="Models\CustomerInfoModel.cs" />
     <Compile Include="Models\MenuItems.cs" />
+    <Compile Include="Models\OrderedMenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
