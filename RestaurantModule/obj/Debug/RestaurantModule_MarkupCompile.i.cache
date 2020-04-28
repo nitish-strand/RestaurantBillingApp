@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\nitish\source\repos\RestaurantAppProject\Stage3\RestaurantModule\obj\Debug\
+C:\Users\nitish\source\repos\RestaurantBillingApp\RestaurantModule\obj\Debug\
 RestaurantModule
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 6-321832429
 
 25-1184290479
-1251694481759
+125915820510
 Views\AdminLogin.xaml;Views\AdminManage.xaml;Views\CustomerBill.xaml;Views\CustomerInfo.xaml;Views\CustomerOrder.xaml;Views\Home.xaml;
 
 True

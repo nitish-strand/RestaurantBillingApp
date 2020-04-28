@@ -19,8 +19,8 @@
                 <TextBlock Text="Who are you?" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="10"/>
 
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10">
-                    <RadioButton Content="Admin" IsChecked="{Binding Path=ButtonAIsChecked, Mode=TwoWay}" Margin="10"/>
-                    <RadioButton Content="Customer" IsChecked="{Binding Path=ButtonBIsChecked, Mode=TwoWay}" Margin="10"/>
+                    <RadioButton Name="adminButton" GroupName="loginType" Content="Admin" IsChecked="{Binding Path=ButtonAIsChecked, Mode=TwoWay}" Margin="10"/>
+                    <RadioButton Name="customerButton"  GroupName="loginType" Content="Customer" IsChecked="{Binding Path=ButtonBIsChecked, Mode=TwoWay}" Margin="10"/>
                 </StackPanel>
 
             </StackPanel>

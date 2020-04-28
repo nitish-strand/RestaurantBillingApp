@@ -30,16 +30,27 @@ namespace RestaurantModule.ViewModels
             return true;
         }
 
+        private void updateRightRegion()
+        {
+            RemoveAllRegions("RightRegion");
+
+            if (p_ButtonAIsChecked)
+            {
+                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.AdminLogin));
+            }
+            else if (p_ButtonBIsChecked)
+            {
+                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.CustomerInfo));
+            }
+        }
         private bool p_ButtonAIsChecked;
         public bool ButtonAIsChecked
         {
             get { return p_ButtonAIsChecked; }
             set
             {
-                RemoveAllRegions("RightRegion");
-                //MessageBox.Show(string.Format("Button A is checked: {0}", value));
-                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.AdminLogin));
-                SetProperty(ref p_ButtonAIsChecked, value);
+                p_ButtonAIsChecked = value;
+                updateRightRegion();
             }
         }
 
@@ -49,10 +60,8 @@ namespace RestaurantModule.ViewModels
             get { return p_ButtonBIsChecked; }
             set
             {
-                RemoveAllRegions("RightRegion");
-                //MessageBox.Show(string.Format("Button B is checked: {0}", value));
-                _regionManager.RegisterViewWithRegion("RightRegion", typeof(Views.CustomerInfo));
-                SetProperty(ref p_ButtonBIsChecked, value);
+                p_ButtonBIsChecked = value;
+                updateRightRegion();
             }
         }
 
