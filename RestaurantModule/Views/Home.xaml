@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="RestaurantModule.Views.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestaurantModule.Views"
+             mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0">
+                <TextBlock Text="Welcome to GS Restaurant!" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"/>
+                <TextBlock Text="Who are you?" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="10"/>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10">
+                    <RadioButton Content="Admin" IsChecked="{Binding Path=ButtonAIsChecked, Mode=TwoWay}" Margin="10"/>
+                    <RadioButton Content="Customer" IsChecked="{Binding Path=ButtonBIsChecked, Mode=TwoWay}" Margin="10"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Grid.Row="1">
+                <Button Content="OK" Margin="10" Padding="15,4"/>
+                <Button Content="Exit"  Command="{Binding ExitCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="10" Padding="15,4"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

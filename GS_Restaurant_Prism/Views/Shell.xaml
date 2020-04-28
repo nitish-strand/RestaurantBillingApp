@@ -1,0 +1,36 @@
+﻿<Window x:Class="GS_Restaurant_Prism.Views.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GS_Restaurant_Prism.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        Title="{Binding Title, FallbackValue='not found'}" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Border BorderThickness="2" BorderBrush="Black" Background="LightGray" />
+            <StackPanel>
+                <Label Content="Navigation"/>
+                <ItemsControl prism:RegionManager.RegionName="Left"></ItemsControl>
+            </StackPanel>
+        </Grid>
+
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Column="2">
+            <Border BorderThickness="2" BorderBrush="Black" Background="GhostWhite" />
+            <StackPanel>
+                <Label Content="Main Panel"/>
+                <ItemsControl prism:RegionManager.RegionName="Right"></ItemsControl>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

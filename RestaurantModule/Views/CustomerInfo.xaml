@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="RestaurantModule.Views.CustomerInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestaurantModule.Views"
+              mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="{Binding MyProperty}"/>
+
+        <StackPanel>
+            <Label Grid.Row="0" Content="Please enter the following details:-" Margin="5" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="1">
+                <Label Content="FirstName" FontWeight="Bold" Margin="5"/>
+                <TextBox Text="{Binding CustomerFirstName}" Margin="5" Width="380"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="2">
+                <Label Content="LastName" FontWeight="Bold" Margin="5"/>
+                <TextBox Text="{Binding CustomerLastName}" Margin="5" Width="380"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="3">
+                <Label Content="Location" FontWeight="Bold" Margin="5"/>
+                <TextBox Text="{Binding CustomerLocation}" Margin="5" Width="380"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="4">
+                <Label Content="Number of people accompanied" FontWeight="Bold" Margin="5"/>
+                <TextBox Text="{Binding CustomerWithNumber}" Margin="5" Width="180"/>
+            </StackPanel>
+            
+            
+            <StackPanel Orientation="Vertical" Margin="5">
+                <Button Grid.Row="5" Content="Submit" Command="{Binding SubmitInfo}" HorizontalAlignment="Right" Padding="5" Margin="10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding CheckVisibility}">
+                    <Label Grid.Row="6" Content="{Binding Message}" Foreground="Red" HorizontalAlignment="Left" Margin="5"/>
+                    <Button Grid.Row="6" Content="Order" Command="{Binding TakeOrder}" HorizontalAlignment="Right" Padding="5" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
